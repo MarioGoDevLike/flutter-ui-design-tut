@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tutorialization/anotherMain.dart';
+import './anotherMain.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -144,9 +147,33 @@ class _HomePageState extends State<HomePage> {
                             ),
                           )),
                     ),
-                  )
+                  ),
                 ],
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.person_search),
+                  style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white70),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black87),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: const BorderSide(color: Colors.yellow)))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => const SecondPage()));
+                  },
+                  label: const Text('Press ME'),
+                ),
+              ],
             )
           ]),
         ));
